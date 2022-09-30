@@ -12,7 +12,7 @@ function Book(title, author, pages, readYet){
     this.pages = pages
     this.readYet = readYet
     this.info = function() {
-        infoString = title + " by " + author + ", " + pages + ", " + readYet;
+        infoString = title + " by " + author + ", " + pages + " pages, " + readYet;
         return infoString;
     }
 }
@@ -23,10 +23,16 @@ function addBookToLibrary(Book){
 }   
 
 //Add some permanent books to your library for function testing
+const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet");
+const dirt = new Book("Dirt", "William Brian Logan", "201", "partially read");
+const physicsBook = new Book("The Physics Books", "Sterling Publishing House", "506", "not read yet");
+const tradHealersCentralAustralia = new Book("Traditional Healers of Central Australia", "Various Authors", "304", "partially read);
+
+
 
 //Loop through the array and display each book - format it however you think would be best 
 
-//Add a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
+//Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
 //Add a button to bring up the form
 
