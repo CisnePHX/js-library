@@ -1,10 +1,7 @@
-//Core library code here
+//Core library code lives here
 
 //Create an array to store the books
 let myLibrary = [];
-
-
-
 
 //Create a base class constructor for a book object
 function Book(title, author, pages, readYet){
@@ -36,7 +33,10 @@ addBookToLibrary(tradHealersCentralAustralia);
 //Loop through the array and display each book - format it however you think would be best 
 for(let i=0; i< myLibrary.length; i++){
     let newBookLine = document.createElement('div');
-    let bookPrintInfo = Book.info();
+    let thisBook = myLibrary[i];
+    let bookPrintInfo = thisBook.info();
+    newBookLine.appendChild(bookPrintInfo);
+    document.getElementById("bookDisplay").appendChild(newBookLine);
 }
 
 
