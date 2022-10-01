@@ -31,16 +31,26 @@ addBookToLibrary(tradHealersCentralAustralia);
 
 
 //Loop through the array and display each book - format it however you think would be best 
-for(let i=0; i< myLibrary.length; i++){
-    let newBookLine = document.createElement('div');
-    let thisBook = myLibrary[i];
-    let bookPrintInfo = thisBook.info();
-    newBookLine.appendChild(bookPrintInfo);
-    document.getElementById("bookDisplay").appendChild(newBookLine);
-}
+// for(let i=0; i< myLibrary.length; i++){
+//     let newBookLine = document.createElement('div');
+//     let thisBook = myLibrary[i];
+//     let bookPrintInfo = thisBook.info();
+//     newBookLine.appendChild(bookPrintInfo);
+//     document.getElementById("bookDisplay").appendChild(newBookLine);
+// }
 
+//////TEST////////
+const bookSection = document.getElementById('bookDisplay');
+bookSection.style.display = "flex";
+bookSection.style.flexDirection = "row";
 
+let newBookLine = document.createElement('div');
 
+//let thisBook = dirt;
+let bookPrintInfo = document.createTextNode("hi");
+newBookLine.appendChild(bookPrintInfo);
+bookSection.append(newBookLine);
+console.log("hi")
 
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
