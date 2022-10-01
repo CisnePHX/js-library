@@ -5,7 +5,8 @@ let myLibrary = [];
 
 //Create a base class constructor for a book object
 function Book(title, author, pages, readYet){
-    this.title = titlethis.author = author;
+    this.title = title
+    this.author = author;
     this.pages = pages;
     this.readYet = readYet;
     this.info = function() {
@@ -31,26 +32,29 @@ addBookToLibrary(tradHealersCentralAustralia);
 
 
 //Loop through the array and display each book - format it however you think would be best 
-// for(let i=0; i< myLibrary.length; i++){
-//     let newBookLine = document.createElement('div');
-//     let thisBook = myLibrary[i];
-//     let bookPrintInfo = thisBook.info();
-//     newBookLine.appendChild(bookPrintInfo);
-//     document.getElementById("bookDisplay").appendChild(newBookLine);
-// }
+const bookSection = document.getElementById('bookDisplay');
+
+for(let i=0; i< myLibrary.length; i++){
+    let newBookLine = document.createElement('div');
+    let arrayItem = myLibrary[i];
+    let thisBook = arrayItem.info();
+    console.log(thisBook);
+    let bookPrintInfo = document.createTextNode(thisBook);
+    newBookLine.appendChild(bookPrintInfo);
+    bookSection.appendChild(newBookLine);
+}
 
 //////TEST////////
-const bookSection = document.getElementById('bookDisplay');
-bookSection.style.display = "flex";
-bookSection.style.flexDirection = "row";
 
-let newBookLine = document.createElement('div');
 
-//let thisBook = dirt;
-let bookPrintInfo = document.createTextNode("hi");
-newBookLine.appendChild(bookPrintInfo);
-bookSection.append(newBookLine);
-console.log("hi")
+// let newBookLine = document.createElement('div');
+
+// let thisBook = dirt.info();
+// console.log(thisBook);
+// let bookPrintInfo = document.createTextNode(thisBook);
+// newBookLine.appendChild(bookPrintInfo);
+// bookSection.appendChild(newBookLine);
+// console.log("hi")
 
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
