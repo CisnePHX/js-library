@@ -44,18 +44,6 @@ for(let i=0; i< myLibrary.length; i++){
     bookSection.appendChild(newBookLine);
 }
 
-//////TEST////////
-
-
-// let newBookLine = document.createElement('div');
-
-// let thisBook = dirt.info();
-// console.log(thisBook);
-// let bookPrintInfo = document.createTextNode(thisBook);
-// newBookLine.appendChild(bookPrintInfo);
-// bookSection.appendChild(newBookLine);
-// console.log("hi")
-
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
 //Add a button to bring up the form
