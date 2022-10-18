@@ -30,6 +30,45 @@ addBookToLibrary(physicsBook);
 const tradHealersCentralAustralia = new Book("Traditional Healers of Central Australia", "Various Authors", "304", "partially read");
 addBookToLibrary(tradHealersCentralAustralia);
 
+//function to rotate book border colors
+function randomBorderColor{
+    let value = Math.floor(Math.random() * 10); //random values 0 - 9
+    let borderValues = "";
+
+    switch(value){
+        case 0:
+            borderValues = "thick solid #FFFF00";
+            break;
+        case 1:
+            borderValues = "thick solid #FFA500";
+            break;
+        case 2:
+            borderValues = "thick solid #0000FF";
+            break;
+        case 3:
+            borderValues = "thick solid #008000";
+            break;
+        case 4:
+            borderValues = "thick solid #4B0082";
+            break;
+        case 5:
+            borderValues = "thick solid #EE82EE";
+            break;
+        case 6:
+            borderValues = "thick solid #5EDFDB";
+            break;
+        case 7:
+            borderValues = "thick solid #CD00E1";
+            break;
+        case 8:
+            borderValues = "thick solid #64F651";
+            break;
+        case 9:
+            borderValues = "thick solid #D2B48C";
+            break;
+    }
+    return borderValues;
+}
 
 //Loop through the array and display each book - format it however you think would be best 
 const bookSection = document.getElementById('bookDisplay');
@@ -46,14 +85,12 @@ for(let i=0; i< myLibrary.length; i++){
 
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
-//Add a button to bring up the form
-
 //Add a button on each book’s display to remove the book from the library
 ////////////////  need to associate your DOM elements with the actual book objects in some way.
 //////////////    One easy solution is giving them a data-attribute that corresponds to the index of the library array.
 
 
-//Add a button on each book’s display to change its read statu
+//Add a button on each book’s display to change its read status
 //////////////  To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance
 
 
