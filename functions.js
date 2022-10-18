@@ -31,7 +31,7 @@ const tradHealersCentralAustralia = new Book("Traditional Healers of Central Aus
 addBookToLibrary(tradHealersCentralAustralia);
 
 //function to rotate book border colors
-function randomBorderColor{
+function randomBorderColor(){
     let value = Math.floor(Math.random() * 10); //random values 0 - 9
     let borderValues = "";
 
@@ -80,6 +80,9 @@ for(let i=0; i< myLibrary.length; i++){
     console.log(thisBook);
     let bookPrintInfo = document.createTextNode(thisBook);
     newBookLine.appendChild(bookPrintInfo);
+    //add border color
+     let borderColor = randomBorderColor();
+    newBookLine.style.border = borderColor;
     bookSection.appendChild(newBookLine);
 }
 
