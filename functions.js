@@ -88,6 +88,7 @@ for(let i=0; i< myLibrary.length; i++){
 
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
 
+
 //Add a button on each book’s display to remove the book from the library
 ////////////////  need to associate your DOM elements with the actual book objects in some way.
 //////////////    One easy solution is giving them a data-attribute that corresponds to the index of the library array.
