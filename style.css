@@ -14,6 +14,22 @@ button{
     color: white;
     text-shadow: 2px 2px black;
 }
+.form-popup{
+    display: none;
+    position: fixed;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+.form-container{
+    max-width: 600px;
+    padding: 10px;
+    background-color: white;
+}
+.form-container input[type=text]{
+    background-color: #ddd;
+    outline: none;
+}
+
 h1{
     font-size: 56px;
 }

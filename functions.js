@@ -86,8 +86,15 @@ for(let i=0; i< myLibrary.length; i++){
     bookSection.appendChild(newBookLine);
 }
 
-//Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read
+//Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read, and a button to close the form
+function openAddBook(){
+    document.getElementById("bookForm").style.display = "block";
+}
+function closeForm(){
+    document.getElementById("bookForm").style.display = "none";
+}
 
+//document.getElementById("open-form").onclick = function() {openAddBook()};
 
 //Add a button on each book’s display to remove the book from the library
 ////////////////  need to associate your DOM elements with the actual book objects in some way.

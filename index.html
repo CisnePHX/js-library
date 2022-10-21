@@ -11,26 +11,26 @@
 <body>
     <h1>My Library</h1>
     <div id="buttons">
-        <button class="open-button">Add a book</button>
+        <button class = "open-button" id="open-form" onclick="openAddBook()">Add a book</button>
     </div>
-    <!-- "Add book" form -->
+    <!-- "Add book" pop-up form -->
     <div class="form-popup" id="bookForm">
-        <form action="functions.js" class="form-container">
-        <h1>Add a Book</h1>
-        <label for="title"><b>Title</b></label>
-        <input type="text" placeholder="Enter Title" name="title" required>
-    
-        <label for="author"><b>Author</b></label>
-        <input type="author" placeholder="Enter Author" name="author" required>
-    
-        <label for="pages"><b>Pages</b></label>
-        <input type="pages" placeholder="Enter Pages" name="pages" required>
+        <form action="index.html" class="form-container">
+            <h1>Add a Book</h1>
+            <label for="title"><b>Title</b></label>
+            <input type="text" placeholder="Enter Title" name="title" required>
+        
+            <label for="author"><b>Author</b></label>
+            <input type="text" placeholder="Enter Author" name="author" required>
+        
+            <label for="pages"><b>Pages</b></label>
+            <input type="text" placeholder="Enter Pages" name="pages" required>
 
-        <label for="readYet"><b>Read</b></label>
-        <input type="readYet" placeholder="Enter If Read or Not" name="readYet" required>
+            <label for="readYet"><b>Read</b></label>
+            <input type="text" placeholder="Enter If Read or Not" name="readYet" required>
 
-        <button type="submit" class="btn">Add Book</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="submit" class="btn">Add Book</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
     <h3>The following books are in your library:</h3>
