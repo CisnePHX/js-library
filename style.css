@@ -17,19 +17,23 @@ button{
 .form-popup{
     display: none;
     position: fixed;
-    border: 3px solid #f1f1f1;
+    border: 3px solid grey;
     z-index: 9;
 }
 .form-container{
-    max-width: 600px;
-    padding: 10px;
+    max-width: 700px;
+    padding: 25px;
     background-color: white;
 }
 .form-container input[type=text]{
     background-color: #ddd;
     outline: none;
+    font-size: 24px;
 }
-
+li{
+    list-style: none;
+    padding: 8px;
+}
 h1{
     font-size: 56px;
 }
