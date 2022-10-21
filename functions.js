@@ -37,34 +37,34 @@ function randomBorderColor(){
 
     switch(value){
         case 0:
-            borderValues = "thick solid #FFFF00";
+            borderValues = "8px solid #FFFF00";
             break;
         case 1:
-            borderValues = "thick solid #FFA500";
+            borderValues = "8px solid #FFA500";
             break;
         case 2:
-            borderValues = "thick solid #0000FF";
+            borderValues = "8px solid #0000FF";
             break;
         case 3:
-            borderValues = "thick solid #008000";
+            borderValues = "8px solid #008000";
             break;
         case 4:
-            borderValues = "thick solid #4B0082";
+            borderValues = "8px solid #4B0082";
             break;
         case 5:
-            borderValues = "thick solid #EE82EE";
+            borderValues = "8px solid #EE82EE";
             break;
         case 6:
-            borderValues = "thick solid #5EDFDB";
+            borderValues = "8px solid #5EDFDB";
             break;
         case 7:
-            borderValues = "thick solid #CD00E1";
+            borderValues = "8px solid #CD00E1";
             break;
         case 8:
-            borderValues = "thick solid #64F651";
+            borderValues = "8px solid #64F651";
             break;
         case 9:
-            borderValues = "thick solid #D2B48C";
+            borderValues = "8px solid #D2B48C";
             break;
     }
     return borderValues;
@@ -81,8 +81,11 @@ for(let i=0; i< myLibrary.length; i++){
     let bookPrintInfo = document.createTextNode(thisBook);
     newBookLine.appendChild(bookPrintInfo);
     //add border color
-     let borderColor = randomBorderColor();
+    let borderColor = randomBorderColor();
     newBookLine.style.border = borderColor;
+    newBookLine.style.lineHeight = 2.5;
+    newBookLine.style.borderRadius = "25px";
+    newBookLine.style.textIndent = "40px";
     bookSection.appendChild(newBookLine);
 }
 
