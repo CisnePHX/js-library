@@ -88,7 +88,11 @@ for(let i=0; i< myLibrary.length; i++){
     newBookLine.style.textIndent = "40px";
     bookSection.appendChild(newBookLine);
 }
-
+function deleteLibraryDisplay(){
+    while (bookSection.hasChildNodes()){
+        bookSection.removeChild(bookSection.firstChild);
+    }
+}
 //Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read, and a button to close the form
 function openAddBook(){
     document.getElementById("bookForm").style.display = "block";
@@ -110,6 +114,8 @@ function addNewBook(){
     let addPages = newPages.value;
     const newLibraryBook = new Book('${addTitle}', '${addAuthor}', '${addPages}', 'unread');
     addBookToLibrary(newLibraryBook);
+    deleteLibraryDisplay();
+    
 }
 
 //Add a button on each book’s display to change its read status
