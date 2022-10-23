@@ -73,20 +73,22 @@ function randomBorderColor(){
 //Loop through the array and display each book - format it however you think would be best 
 const bookSection = document.getElementById('bookDisplay');
 
-for(let i=0; i< myLibrary.length; i++){
-    let newBookLine = document.createElement('div');
-    let arrayItem = myLibrary[i];
-    let thisBook = arrayItem.info();
-    console.log(thisBook);
-    let bookPrintInfo = document.createTextNode(thisBook);
-    newBookLine.appendChild(bookPrintInfo);
-    //add border color
-    let borderColor = randomBorderColor();
-    newBookLine.style.border = borderColor;
-    newBookLine.style.lineHeight = 2.5;
-    newBookLine.style.borderRadius = "25px";
-    newBookLine.style.textIndent = "40px";
-    bookSection.appendChild(newBookLine);
+function buildLibrary(){
+    for(let i=0; i< myLibrary.length; i++){
+        let newBookLine = document.createElement('div');
+        let arrayItem = myLibrary[i];
+        let thisBook = arrayItem.info();
+        console.log(thisBook);
+        let bookPrintInfo = document.createTextNode(thisBook);
+        newBookLine.appendChild(bookPrintInfo);
+        //add border color
+        let borderColor = randomBorderColor();
+        newBookLine.style.border = borderColor;
+        newBookLine.style.lineHeight = 2.5;
+        newBookLine.style.borderRadius = "25px";
+        newBookLine.style.textIndent = "40px";
+        bookSection.appendChild(newBookLine);
+    }
 }
 function deleteLibraryDisplay(){
     while (bookSection.hasChildNodes()){
@@ -115,7 +117,7 @@ function addNewBook(){
     const newLibraryBook = new Book('${addTitle}', '${addAuthor}', '${addPages}', 'unread');
     addBookToLibrary(newLibraryBook);
     deleteLibraryDisplay();
-    
+
 }
 
 //Add a button on each book’s display to change its read status
