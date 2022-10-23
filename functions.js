@@ -21,6 +21,13 @@ function addBookToLibrary(Book){
 }   
 
 //Add some permanent books to your library for function testing
+// let temptitle = "Hello hello";
+// let tempAuthor = "Me";
+// let tempPages = "222";
+// let tempReadYet = "no"
+// const helloHello = new Book(temptitle, '${tempAuthor}', '${tempPages}', 'not yet');
+// addBookToLibrary(helloHello);
+
 const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet");
 addBookToLibrary(timeReborn);
 const dirt = new Book("Dirt", "William Brian Logan", "201", "partially read");
@@ -112,12 +119,12 @@ function addNewBook(){
     const newAuthor = form.elements['author'];
     const newPages = form.elements['pages'];
     let addTitle = newTitle.value;
-    let addAuthor = newAuthor.value;
-    let addPages = newPages.value;
-    const newLibraryBook = new Book('${addTitle}', '${addAuthor}', '${addPages}', 'unread');
+    let addAuthor = String(newAuthor.value);
+    let addPages = String(newPages.value);
+    const newLibraryBook = new Book(newTitle, newAuthor, newPages, 'unread');
     addBookToLibrary(newLibraryBook);
     deleteLibraryDisplay();
-
+    buildLibrary();
 }
 buildLibrary();
 

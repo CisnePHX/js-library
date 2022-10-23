@@ -15,7 +15,7 @@
     </div>
     <!-- "Add book" pop-up form -->
     <div class="form-popup" id="bookForm">
-        <form action="index.html" class="form-container" id="addForm">
+        <form action="javascript:void(0);" class="form-container" id="addForm">
             <h1>Add a Book</h1>
             <ul>
                 <li><label for="title"><b>Title</b></label>
@@ -30,7 +30,7 @@
                 <li><label for="readYet"><b>Read</b></label>
                 <input type="text" placeholder="Enter If Read or Not" name="readYet" required>
                 </li>
-                <li><button type="submit" class="btn">Add Book</button></li>
+                <li><button type="submit" class="btn" onclick="addNewBook()">Add Book</button></li>
                 <li><button type="button" class="btn cancel" onclick="closeForm()">Close</button></li>
             </ul>
         </form>
