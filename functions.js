@@ -85,7 +85,6 @@ function buildLibrary(){
         let newBookLine = document.createElement('div');
         let arrayItem = myLibrary[i];
         let thisBook = arrayItem.info();
-        console.log(thisBook);
         let bookPrintInfo = document.createTextNode(thisBook);
         newBookLine.appendChild(bookPrintInfo);
         //add border color
@@ -95,6 +94,13 @@ function buildLibrary(){
         newBookLine.style.borderRadius = "25px";
         newBookLine.style.textIndent = "40px";
         bookSection.appendChild(newBookLine);
+        //Add button to be able to remove book from Libaray
+        const button = document.createElement('button');
+        button.innerText = 'Remove';
+        button.addEventListener('click', () =>{
+            alert('Book Deleted');
+        })
+        bookSection.appendChild(button);
     }
 }
 function deleteLibraryDisplay(){
