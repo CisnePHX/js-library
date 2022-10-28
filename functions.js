@@ -20,13 +20,10 @@ function addBookToLibrary(Book){
     myLibrary.push(Book);
 }   
 
+function removeBookFromLibrary(arrayNumber){
+    myLibrary.splice(arrayNumber, arrayNumber);
+}
 //Add some permanent books to your library for function testing
-// let temptitle = "Hello hello";
-// let tempAuthor = "Me";
-// let tempPages = "222";
-// let tempReadYet = "no"
-// const helloHello = new Book(temptitle, '${tempAuthor}', '${tempPages}', 'not yet');
-// addBookToLibrary(helloHello);
 
 const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet");
 addBookToLibrary(timeReborn);
@@ -84,6 +81,7 @@ function buildLibrary(){
     for(let i=0; i< myLibrary.length; i++){
         let newBookLine = document.createElement('div');
         let arrayItem = myLibrary[i];
+        let arrayNumber = 0;
         let thisBook = arrayItem.info();
         let bookPrintInfo = document.createTextNode(thisBook);
         newBookLine.appendChild(bookPrintInfo);
@@ -101,6 +99,7 @@ function buildLibrary(){
             alert('Book Deleted');
         })
         bookSection.appendChild(button);
+        arrayNumber++;
     }
 }
 function deleteLibraryDisplay(){
