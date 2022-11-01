@@ -2,6 +2,7 @@
 
 //Create an array to store the books
 let myLibrary = [];
+const bookSection = document.getElementById('bookDisplay');
 
 //Create a base class constructor for a book object
 function Book(title, author, pages, readYet){
@@ -75,7 +76,6 @@ function randomBorderColor(){
 }
 
 //Loop through the array and display each book - format it however you think would be best 
-const bookSection = document.getElementById('bookDisplay');
 
 function buildLibrary(){
     for(let i=0; i< myLibrary.length; i++){
@@ -97,6 +97,9 @@ function buildLibrary(){
         button.innerText = 'Remove';
         button.addEventListener('click', () =>{
             alert('Book Deleted');
+            removeBookFromLibrary(); //need a way to keep track of array numbers
+            deleteLibraryDisplay;
+            buildLibrary;
         })
         bookSection.appendChild(button);
         arrayNumber++;
