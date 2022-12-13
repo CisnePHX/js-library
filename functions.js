@@ -112,35 +112,31 @@ function deleteLibraryDisplay(){
         bookSection.removeChild(bookSection.firstChild);
     }
 }
-//Add a button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read, and a button to close the form
+//"Add Book Form" helper functions
 function openAddBook(){
     document.getElementById("bookForm").style.display = "block";
 }
 function closeForm(){
     document.getElementById("bookForm").style.display = "none";
 }
-
-//Add a button on each book’s display to remove the book from the library
-////////////////  need to associate your DOM elements with the actual book objects in some way.
-//////////////    One easy solution is giving them a data-attribute that corresponds to the index of the library array.
-//capturing input data correctly
+//creates and processes the "Add New Book" popup form
 function addNewBook(event){
     const form = document.getElementById("addForm");
     const newTitle = form.elements['title'];
     const newAuthor = form.elements['author'];
     const newPages = form.elements['pages'];
+    const newRead = form.elements['readYet'];
     let addTitle = String(newTitle.value);
     let addAuthor = String(newAuthor.value);
     let addPages = String(newPages.value);
-    const newLibraryBook = new Book(addTitle, addAuthor, addPages, 'unread', myLibrary.length);
+    let addRead = String(newRead.value);
+    const newLibraryBook = new Book(addTitle, addAuthor, addPages, addRead, myLibrary.length);
     console.log(addTitle, addAuthor, addPages);
-    //event.preventDefault();
     addBookToLibrary(newLibraryBook);
     console.log(myLibrary[newLibraryBook.location]);
     deleteLibraryDisplay();
     buildLibrary();
 }
-
 
 function removeBookFromLibrary(arrayNumber){
     let deletedBook = new Book("Deleted", "Deleted", "0", "Deleted", arrayNumber);
@@ -149,8 +145,6 @@ function removeBookFromLibrary(arrayNumber){
     deleteLibraryDisplay();
     buildLibrary();
 }
-
-//addBookButtonPush.addEventListener("click", addNewBook);
 
 buildLibrary();
 
