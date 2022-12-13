@@ -1,13 +1,13 @@
 //Core library code lives here
 //TODO: 
 // 1.)Adding a book needs to inlcude accurate info
-// 2.)Removing a book needs to reload page and remove book
+// 2.)Removing a book needs to reload page and remove book ////DONE
 // 3.)Add button to change read status of each book
 
 //Create an array to store the books
 let myLibrary = [];
 const bookSection = document.getElementById('bookDisplay');
-const addBookButtonPush = document.getElementById('addingBook');
+//const addBookButtonPush = document.getElementById('addingBook');
 
 //Create a base class constructor for a book object
 function Book(title, author, pages, readYet, location){
@@ -129,13 +129,14 @@ function addNewBook(event){
     const newTitle = form.elements['title'];
     const newAuthor = form.elements['author'];
     const newPages = form.elements['pages'];
-    let addTitle = newTitle.value;
+    let addTitle = String(newTitle.value);
     let addAuthor = String(newAuthor.value);
     let addPages = String(newPages.value);
-    const newLibraryBook = new Book(newTitle, newAuthor, newPages, 'unread');
+    const newLibraryBook = new Book(addTitle, addAuthor, addPages, 'unread', myLibrary.length);
     console.log(addTitle, addAuthor, addPages);
-    event.preventDefault();
+    //event.preventDefault();
     addBookToLibrary(newLibraryBook);
+    console.log(myLibrary[newLibraryBook.location]);
     deleteLibraryDisplay();
     buildLibrary();
 }
@@ -149,7 +150,7 @@ function removeBookFromLibrary(arrayNumber){
     buildLibrary();
 }
 
-addBookButtonPush.addEventListener("click", addNewBook);
+//addBookButtonPush.addEventListener("click", addNewBook);
 
 buildLibrary();
 
