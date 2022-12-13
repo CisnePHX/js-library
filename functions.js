@@ -1,15 +1,21 @@
 //Core library code lives here
+//TODO: 
+// 1.)Adding a book needs to inlcude accurate info
+// 2.)Removing a book needs to reload page and remove book
+// 3.)Add button to change read status of each book
 
 //Create an array to store the books
 let myLibrary = [];
 const bookSection = document.getElementById('bookDisplay');
+const addBookButtonPush = document.getElementById('addingBook');
 
 //Create a base class constructor for a book object
-function Book(title, author, pages, readYet){
+function Book(title, author, pages, readYet, location){
     this.title = title
     this.author = author;
     this.pages = pages;
     this.readYet = readYet;
+    this.location = location;
     this.info = function() {
         infoString = '   "' + title + '" \nby ' + author + '\n' + pages + ' pages, \n' + readYet;
         return infoString;
@@ -21,19 +27,17 @@ function addBookToLibrary(Book){
     myLibrary.push(Book);
 }   
 
-function removeBookFromLibrary(arrayNumber){
-    myLibrary.splice(arrayNumber, arrayNumber);
-}
 //Add some permanent books to your library for function testing
 
-const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet");
+const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet", myLibrary.length);
 addBookToLibrary(timeReborn);
-const dirt = new Book("Dirt", "William Brian Logan", "201", "partially read");
+const dirt = new Book("Dirt", "William Brian Logan", "201", "partially read", myLibrary.length);
 addBookToLibrary(dirt);
-const physicsBook = new Book("The Physics Books", "Sterling Publishing House", "506", "not read yet");
+const physicsBook = new Book("The Physics Books", "Sterling Publishing House", "506", "not read yet", myLibrary.length);
 addBookToLibrary(physicsBook);
-const tradHealersCentralAustralia = new Book("Traditional Healers of Central Australia", "Various Authors", "304", "partially read");
+const tradHealersCentralAustralia = new Book("Traditional Healers of Central Australia", "Various Authors", "304", "partially read", myLibrary.length);
 addBookToLibrary(tradHealersCentralAustralia);
+
 
 //function to rotate book border colors
 function randomBorderColor(){
@@ -81,7 +85,7 @@ function buildLibrary(){
     for(let i=0; i< myLibrary.length; i++){
         let newBookLine = document.createElement('div');
         let arrayItem = myLibrary[i];
-        let arrayNumber = 0;
+        let arrayNumber = arrayItem.location;
         let thisBook = arrayItem.info();
         let bookPrintInfo = document.createTextNode(thisBook);
         newBookLine.appendChild(bookPrintInfo);
@@ -97,12 +101,10 @@ function buildLibrary(){
         button.innerText = 'Remove';
         button.addEventListener('click', () =>{
             alert('Book Deleted');
-            removeBookFromLibrary(); //need a way to keep track of array numbers
-            deleteLibraryDisplay;
-            buildLibrary;
+            console.log(arrayNumber)
+            removeBookFromLibrary(arrayNumber); //need a way to keep track of array numbers
         })
         bookSection.appendChild(button);
-        arrayNumber++;
     }
 }
 function deleteLibraryDisplay(){
@@ -121,7 +123,8 @@ function closeForm(){
 //Add a button on each book’s display to remove the book from the library
 ////////////////  need to associate your DOM elements with the actual book objects in some way.
 //////////////    One easy solution is giving them a data-attribute that corresponds to the index of the library array.
-function addNewBook(){
+//capturing input data correctly
+function addNewBook(event){
     const form = document.getElementById("addForm");
     const newTitle = form.elements['title'];
     const newAuthor = form.elements['author'];
@@ -130,10 +133,24 @@ function addNewBook(){
     let addAuthor = String(newAuthor.value);
     let addPages = String(newPages.value);
     const newLibraryBook = new Book(newTitle, newAuthor, newPages, 'unread');
+    console.log(addTitle, addAuthor, addPages);
+    event.preventDefault();
     addBookToLibrary(newLibraryBook);
     deleteLibraryDisplay();
     buildLibrary();
 }
+
+
+function removeBookFromLibrary(arrayNumber){
+    let deletedBook = new Book("Deleted", "Deleted", "Deleted", "Deleted", arrayNumber);
+    myLibrary.splice(arrayNumber, 1, deletedBook);
+    console.log(myLibrary);
+    deleteLibraryDisplay();
+    buildLibrary();
+}
+
+addBookButtonPush.addEventListener("click", addNewBook);
+
 buildLibrary();
 
 //Add a button on each book’s display to change its read status
