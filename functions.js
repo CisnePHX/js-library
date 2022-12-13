@@ -1,13 +1,10 @@
 //Core library code lives here
 //TODO: 
-// 1.)Adding a book needs to inlcude accurate info
-// 2.)Removing a book needs to reload page and remove book ////DONE
 // 3.)Add button to change read status of each book
 
 //Create an array to store the books
 let myLibrary = [];
 const bookSection = document.getElementById('bookDisplay');
-//const addBookButtonPush = document.getElementById('addingBook');
 
 //Create a base class constructor for a book object
 function Book(title, author, pages, readYet, location){
@@ -26,8 +23,13 @@ function Book(title, author, pages, readYet, location){
 function addBookToLibrary(Book){
     myLibrary.push(Book);
 }   
+//Change the status of a book to "read"
+function alreadyRead(arrayNumber){
+    myLibrary[arrayNumber].location = "read";
+}
 
-//Add some permanent books to your library for function testing
+
+//Adds some permanent books to your library for function testing
 
 const timeReborn = new Book("Time Reborn", "Lee Smolin", "274", "not read yet", myLibrary.length);
 addBookToLibrary(timeReborn);
@@ -97,14 +99,20 @@ function buildLibrary(){
         newBookLine.style.textIndent = "40px";
         bookSection.appendChild(newBookLine);
         //Add button to be able to remove book from Libaray
-        const button = document.createElement('button');
-        button.innerText = 'Remove';
-        button.addEventListener('click', () =>{
+        const removeButton = document.createElement('button');
+        removeButton.innerText = 'Remove';
+        removeButton.addEventListener('click', () =>{
             alert('Book Deleted');
             console.log(arrayNumber)
-            removeBookFromLibrary(arrayNumber); //need a way to keep track of array numbers
+            removeBookFromLibrary(arrayNumber); 
         })
-        bookSection.appendChild(button);
+        bookSection.appendChild(removeButton);
+        const readButton = document.createElement('button');
+        readButton.innerText = 'I finished reading this';
+        readButton.addEventListener('click', () =>{
+            alreadyRead(arrayNumber);
+        })
+        bookSection.appendChild(readButton);
     }
 }
 function deleteLibraryDisplay(){
