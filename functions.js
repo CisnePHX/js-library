@@ -106,6 +106,7 @@ function buildLibrary(){
             console.log(arrayNumber)
             removeBookFromLibrary(arrayNumber); 
         })
+        removeButton.style.margin = "10px";
         bookSection.appendChild(removeButton);
         const readButton = document.createElement('button');
         readButton.innerText = 'I finished reading this';
