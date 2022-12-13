@@ -14,7 +14,7 @@ function Book(title, author, pages, readYet, location){
     this.readYet = readYet;
     this.location = location;
     this.info = function() {
-        infoString = '   "' + title + '" \nby ' + author + ',\n' + pages + ' pages, \n' + readYet;
+        infoString = '   "' + this.title + '" \nby ' + this.author + ',\n' + this.pages + ' pages, \n' + this.readYet;
         return infoString;
     }
 }
@@ -23,11 +23,6 @@ function Book(title, author, pages, readYet, location){
 function addBookToLibrary(Book){
     myLibrary.push(Book);
 }   
-//Change the status of a book to "read"
-function alreadyRead(arrayNumber){
-    myLibrary[arrayNumber].location = "read";
-}
-
 
 //Adds some permanent books to your library for function testing
 
@@ -155,9 +150,16 @@ function removeBookFromLibrary(arrayNumber){
     buildLibrary();
 }
 
+//Change the status of a book to "read"
+function alreadyRead(arrayNumber){
+    myLibrary[arrayNumber].readYet= "read";
+    console.log(myLibrary[arrayNumber].info());
+    deleteLibraryDisplay();
+    buildLibrary();
+}
+
 buildLibrary();
 
-//Add a button on each book’s display to change its read status
-//////////////  To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance
+
 
 
