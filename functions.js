@@ -17,7 +17,7 @@ function Book(title, author, pages, readYet, location){
     this.readYet = readYet;
     this.location = location;
     this.info = function() {
-        infoString = '   "' + title + '" \nby ' + author + '\n' + pages + ' pages, \n' + readYet;
+        infoString = '   "' + title + '" \nby ' + author + ',\n' + pages + ' pages, \n' + readYet;
         return infoString;
     }
 }
