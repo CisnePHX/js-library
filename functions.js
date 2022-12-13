@@ -142,7 +142,7 @@ function addNewBook(event){
 
 
 function removeBookFromLibrary(arrayNumber){
-    let deletedBook = new Book("Deleted", "Deleted", "Deleted", "Deleted", arrayNumber);
+    let deletedBook = new Book("Deleted", "Deleted", "0", "Deleted", arrayNumber);
     myLibrary.splice(arrayNumber, 1, deletedBook);
     console.log(myLibrary);
     deleteLibraryDisplay();
